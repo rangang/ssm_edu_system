@@ -3,4 +3,19 @@
 
 <mapper namespace="com.edu.dao.CourseMapper">
 
+    <select id="findCourseByCondition" parameterType="com.edu.domain.CourseVO" resultType="com.edu.domain.Course">
+        SELECT id,course_name,price,sort_num,STATUS FROM course
+        <where>
+            <if test="true">
+                and is_del != 1
+            </if>
+            <if test="courseName != null and courseName != ''">
+                and course_name like concat('%',#{courseName},'%')
+            </if>
+            <if test="status != null and status != ''">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
 </mapper>

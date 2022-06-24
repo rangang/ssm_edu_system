@@ -1,18 +1,17 @@
-package com.edu.dao;
+package com.edu.service;
 
 import com.edu.domain.Course;
 import com.edu.domain.CourseVO;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 /**
  * @BelongsProject: edu_system_parent
  * @Author: RG
- * @CreateTime: 2022/6/23 2:38 下午
+ * @CreateTime: 2022/6/24 10:00 上午
  * @Description:
  */
-public interface CourseMapper {
+public interface CourseService {
 
     /**
      * 多条件课程列表查询
