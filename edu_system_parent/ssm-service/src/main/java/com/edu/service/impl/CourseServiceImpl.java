@@ -101,4 +101,18 @@ public class CourseServiceImpl implements CourseService {
         }
 
     }
+
+    @Override
+    public void updateCourseStatus(int id, int status) {
+
+        // 封装数据
+        Course course = new Course();
+        course.setStatus(status);
+        course.setId(id);
+        course.setUpdateTime(new Date());
+
+        // 调用Dao
+        courseMapper.updateCourseStatus(course);
+
+    }
 }

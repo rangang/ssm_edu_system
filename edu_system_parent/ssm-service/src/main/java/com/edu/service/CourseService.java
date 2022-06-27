@@ -39,4 +39,10 @@ public interface CourseService {
      */
     public void updateCourseOrTeacher(CourseVO courseVO);
 
+    /**
+     * 修改课程状态
+     * @param course
+     */
+    public void updateCourseStatus(int id, int status);
+
 }

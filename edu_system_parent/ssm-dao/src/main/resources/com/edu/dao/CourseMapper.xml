@@ -165,4 +165,9 @@
         </where>    
     </update>
 
+    <!--  修改课程状态  -->
+    <update id="updateCourseStatus" parameterType="com.edu.domain.Course">
+        UPDATE course SET STATUS = #{status}, update_time = #{updateTime} WHERE id = #{id}
+    </update>
+
 </mapper>

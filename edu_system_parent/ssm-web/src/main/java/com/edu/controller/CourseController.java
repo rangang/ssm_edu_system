@@ -133,5 +133,25 @@ public class CourseController {
 
     }
 
+    /**
+     * 修改课程状态
+     * @param id
+     * @param status
+     * @return
+     */
+    @RequestMapping("/updateCourseStatus")
+    public ResponseResult updateCourseStatus(@RequestParam int id,@RequestParam int status) {
+
+        // 执行修改操作
+        courseService.updateCourseStatus(id,status);
+
+        // 保存修改后的状态，并返回
+        Map<String,Integer> map = new HashMap<>();
+        map.put("status",status);
+        ResponseResult result = new ResponseResult(true,200,"响应成功",map);
+        return result;
+
+    }
+
 
 }

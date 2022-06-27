@@ -55,4 +55,10 @@ public interface CourseMapper {
      */
     public void updateTeacher(Teacher teacher);
 
+    /**
+     * 修改课程状态
+     * @param course
+     */
+    public void updateCourseStatus(Course course);
+
 }
