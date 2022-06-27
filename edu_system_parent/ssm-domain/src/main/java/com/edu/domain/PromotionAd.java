@@ -39,6 +39,17 @@ public class PromotionAd {
     private Integer priority;
     private String img;
 
+    //声明一方关系：PromotionSpace
+    private PromotionSpace promotionSpace;
+
+    public PromotionSpace getPromotionSpace() {
+        return promotionSpace;
+    }
+
+    public void setPromotionSpace(PromotionSpace promotionSpace) {
+        this.promotionSpace = promotionSpace;
+    }
+
     public String getText() {
         return text;
     }

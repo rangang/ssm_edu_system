@@ -18,4 +18,23 @@ public interface PromotionSpaceMapper {
      */
     public List<PromotionSpace> findAllPromotionSpace();
 
+    /**
+     * 添加广告位
+     * @param promotionSpace
+     */
+    public void savePromotionSpace(PromotionSpace promotionSpace);
+
+    /**
+     * 修改广告位
+     * @param promotionSpace
+     */
+    public void updatePromotionSpace(PromotionSpace promotionSpace);
+
+    /**
+     * 根据ID查询广告位信息
+     * @param id
+     * @return
+     */
+    public PromotionSpace findPromotionSpaceById(int id);
+
 }
