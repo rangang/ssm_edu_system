@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.dao.PromotionSpaceMapper">
+
+    <!--  获取所有的广告位  -->
+    <select id="findAllPromotionSpace" resultType="com.edu.domain.PromotionSpace">
+        select * from promotion_space
+    </select>
+
+</mapper>
