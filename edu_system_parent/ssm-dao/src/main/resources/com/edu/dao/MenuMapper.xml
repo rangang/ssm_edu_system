@@ -25,4 +25,14 @@
         <collection property="subMenuList" ofType="com.edu.domain.Menu" select="findSubMenuListByPid" column="id"></collection>
     </resultMap>
 
+    <!--  查询菜单列表  -->
+    <select id="findAllMenu" resultType="com.edu.domain.Menu">
+        select id,parent_id,href,icon,name,description,order_num,shown,level,created_time,updated_time,created_by,updated_by from menu
+    </select>
+
+    <!--  根据ID查询菜单信息  -->
+    <select id="findMenuById" parameterType="int" resultType="com.edu.domain.Menu">
+        select * from menu;
+    </select>
+
 </mapper>

@@ -24,4 +24,14 @@ public class MenuServiceImpl implements MenuService {
     public List<Menu> findSubMenuListByPid(int pid) {
         return menuMapper.findSubMenuListByPid(pid);
     }
+
+    @Override
+    public List<Menu> findAllMenu() {
+        return menuMapper.findAllMenu();
+    }
+
+    @Override
+    public Menu findMenuById(int id) {
+        return menuMapper.findMenuById(id);
+    }
 }
