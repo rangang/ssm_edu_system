@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.dao.ResourceMapper">
+
+    <!--  查询所有资源  -->
+    <select id="findAllResource" parameterType="com.edu.domain.ResourceVO" resultType="com.edu.domain.Resource">
+        select * from resource
+        <where>
+            <if test="name != null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="url != null">
+                and url = url
+            </if>
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+        </where>
+    </select>
+
+    <!--  添加资源  -->
+    <insert id="saveResource" parameterType="com.edu.domain.Resource">
+        insert into resource values(null,#{name},#{url},#{categoryId},#{description},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+
+    <!--  修改资源  -->
+    <update id="updateResource" parameterType="com.edu.domain.Resource">
+        update resource
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url},
+            </if>
+            <if test="categoryId != null and categoryId != ''">
+                category_id = #{categoryId},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="updatedTime != null">
+                updated_time = #{updatedTime},
+            </if>
+        </trim>
+        <where>
+            <if test="id != null and id != ''">
+                id = #{id}
+            </if>
+        </where>
+    </update>
+
+    <!--  删除资源  -->
+    <delete id="deleteResource" parameterType="int">
+        delete from resource where id = #{id}
+    </delete>
+
+</mapper>

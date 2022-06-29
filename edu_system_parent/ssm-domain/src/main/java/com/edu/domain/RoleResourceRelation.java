@@ -1,35 +1,28 @@
 package com.edu.domain;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @BelongsProject: edu_system_parent
  * @Author: RG
- * @CreateTime: 2022/6/28 3:11 下午
+ * @CreateTime: 2022/6/29 11:57 上午
  * @Description:
  */
-public class ResourceCategory {
+public class RoleResourceRelation {
 
     private Integer id;
-    private String name;
-    private Integer sort;
+
+    private Integer resourceId;
+
+    private Integer roleId;
+
     private Date createdTime;
+
     private Date updatedTime;
+
     private String createdBy;
+
     private String updatedBy;
-
-    //资源集合 一对多
-    private List<Resource> resourceList = new ArrayList<>();
-
-    public List<Resource> getResourceList() {
-        return resourceList;
-    }
-
-    public void setResourceList(List<Resource> resourceList) {
-        this.resourceList = resourceList;
-    }
 
     public Integer getId() {
         return id;
@@ -39,20 +32,20 @@ public class ResourceCategory {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getResourceId() {
+        return resourceId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setResourceId(Integer resourceId) {
+        this.resourceId = resourceId;
     }
 
-    public Integer getSort() {
-        return sort;
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public Date getCreatedTime() {

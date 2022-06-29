@@ -1,9 +1,6 @@
 package com.edu.controller;
 
-import com.edu.domain.Menu;
-import com.edu.domain.ResponseResult;
-import com.edu.domain.Role;
-import com.edu.domain.RoleMenuVO;
+import com.edu.domain.*;
 import com.edu.service.MenuService;
 import com.edu.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,6 +118,33 @@ public class RoleController {
             roleService.updateRole(role);
         }
         return new ResponseResult(true,200,"响应成功","");
+    }
+
+    /**
+     * 获取当前角色拥有的 资源信息(包括资源分类以及资源信息)
+     * @param roleId
+     * @return
+     */
+    @RequestMapping("/findResourceListByRoleId")
+    public ResponseResult findResourceListByRoleId(int roleId){
+
+        //1.获取角色拥有的资源分类信息
+        List<ResourceCategory> categoryList = roleService.findRoleHaveResource(roleId);
+
+        ResponseResult result = new ResponseResult(true,200,"响应成功",categoryList);
+        return result;
+    }
+
+    /**
+     * 角色分配资源
+     * @param roleResourceVo
+     * @return
+     */
+    @RequestMapping("/roleContextResource")
+    public ResponseResult roleContextResource(@RequestBody RoleResourceVo roleResourceVo){
+        roleService.roleContextResource(roleResourceVo);
+        ResponseResult result = new ResponseResult(true,200,"响应成功","");
+        return result;
     }
 
 }

@@ -4,6 +4,7 @@ import com.edu.domain.Menu;
 import com.edu.domain.ResponseResult;
 import com.edu.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -72,5 +73,23 @@ public class MenuController {
         }
 
     }
+
+    /**
+     * 添加&修改菜单
+     * @param menu
+     * @return
+     */
+    @RequestMapping("/saveOrUpdateMenu")
+    public ResponseResult saveOrUpdateMenu(@RequestBody Menu menu) {
+
+        if (menu.getId() == null) {
+            menuService.saveMenu(menu);
+        } else {
+            menuService.updateMenu(menu);
+        }
+
+        return new ResponseResult(true,200,"响应成功","");
+    }
+
 
 }

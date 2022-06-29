@@ -1,8 +1,6 @@
 package com.edu.dao;
 
-import com.edu.domain.Menu;
-import com.edu.domain.Role;
-import com.edu.domain.RoleMenuRelation;
+import com.edu.domain.*;
 
 import java.util.List;
 
@@ -57,5 +55,31 @@ public interface RoleMapper {
      * @param role
      */
     public void updateRole(Role role);
+
+    /**
+     * 获取角色拥有的资源分类数据
+     * @param id
+     * @return
+     */
+    public List<ResourceCategory> findRoleHaveResourceCate(int id);
+
+    /**
+     * 获取角色拥有的资源数据
+     * @param id
+     * @return
+     */
+    public List<Resource> findRoleHaveResource(int id);
+
+    /**
+     * 删除角色和资源的关联信息
+     * @param roleId
+     */
+    public void deleteRoleContextResource(Integer roleId);
+
+    /**
+     * 为角色分配资源
+     * @param resourceRelation
+     */
+    public void roleContextResource(RoleResourceRelation resourceRelation);
 
 }

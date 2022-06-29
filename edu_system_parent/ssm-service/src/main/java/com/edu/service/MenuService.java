@@ -32,4 +32,16 @@ public interface MenuService {
      */
     public Menu findMenuById(int id);
 
+    /**
+     * 添加菜单
+     * @param menu
+     */
+    public void saveMenu(Menu menu);
+
+    /**
+     * 修改菜单
+     * @param menu
+     */
+    public void updateMenu(Menu menu);
+
 }

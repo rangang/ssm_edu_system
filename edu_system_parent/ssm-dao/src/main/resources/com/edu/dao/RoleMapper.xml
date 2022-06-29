@@ -66,4 +66,40 @@
         </where>
     </update>
 
+    <!--  获取角色拥有的资源数据  -->
+    <select id="findRoleHaveResourceCate" parameterType="int" resultMap="ResourceCate">
+        SELECT
+            rc.id,
+            rc.name
+        FROM resource_category	rc LEFT JOIN resource r ON rc.id = r.category_id
+                                     LEFT JOIN role_resource_relation rrr ON r.id = rrr.resource_id LEFT JOIN
+             roles rs ON rrr.role_id = rs.id WHERE rs.id = #{id} GROUP BY  rc.id;
+    </select>
+
+    <resultMap id="ResourceCate" type="com.edu.domain.ResourceCategory">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <!--  获取角色拥有的资源数据  -->
+    <select id="findRoleHaveResource" parameterType="int" resultType="com.edu.domain.Resource">
+        SELECT
+            rc.`id`,
+            rc.`name`,
+            rc.`category_id`
+        FROM roles r  LEFT JOIN role_resource_relation rrr ON r.`id` = rrr.`role_id`
+                      LEFT JOIN resource rc ON rrr.`resource_id` = rc.`id` WHERE r.id = #{id};
+    </select>
+
+    <!--  删除角色关联的资源数据 -->
+    <delete id="deleteRoleContextResource" parameterType="int">
+        DELETE FROM role_resource_relation WHERE role_id = #{id};
+    </delete>
+
+    <!-- 为角色分配资源   -->
+    <insert id="roleContextResource" parameterType="com.edu.domain.RoleResourceRelation">
+        INSERT INTO role_resource_relation
+        VALUES(NULL,#{resourceId},#{roleId},#{createdTime},#{updatedTime},#{createdBy},#{updatedBy})
+    </insert>
+
 </mapper>

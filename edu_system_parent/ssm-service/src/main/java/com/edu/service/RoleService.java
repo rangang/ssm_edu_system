@@ -1,9 +1,6 @@
 package com.edu.service;
 
-import com.edu.domain.Menu;
-import com.edu.domain.Role;
-import com.edu.domain.RoleMenuRelation;
-import com.edu.domain.RoleMenuVO;
+import com.edu.domain.*;
 
 import java.util.List;
 
@@ -52,5 +49,9 @@ public interface RoleService {
      * @param role
      */
     public void updateRole(Role role);
+
+    public List<ResourceCategory> findRoleHaveResource(int id);
+
+    public void roleContextResource(RoleResourceVo roleResourceVo);
 
 }
