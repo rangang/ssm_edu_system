@@ -1,0 +1,1202 @@
+{
+	"info": {
+		"_postman_id": "6fa48135-42d8-4d1b-8035-50c89be6dbb1",
+		"name": "ssm_edu_system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "多条件课程列表查询",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"courseName\": \"Vue.js 3.0 核心源码解析\",\n\t\"status\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/course/findCourseByCondition",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"course",
+								"findCourseByCondition"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "图片上传",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/zhsmac/Documents/img/66.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/course/courseUpload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"course",
+								"courseUpload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存&修改课程信息",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":15,\n    \"courseName\":\"全栈工程师\",\n    \"brief\":\"掌握多种技能，胜任前端与后端\",\n    \"teacherName\":\"药水哥\",\n    \"description\":\"多年企业实战经验\",\n    \"position\":\"高级讲师\",\n    \"previewFirstField\":\"共10讲\",\n    \"previewSecondField\":\"每周四更新\",\n    \"discounts\":66.6,\n    \"price\":88,\n    \"discountsTag\":\"先到先得\",\n    \"courseImgUrl\":\"http://localhost:8080/upload/1596520226925.jpg\",\n    \"courseListImg\":\"http://localhost:8080/upload/1596520226925.jpg\",\n    \"sortNum\":1,\n    \"courseDescriptionMarkDown\":\"介绍当前流行大数据技术，数据技术原理，并介绍其思想，介绍大数据技术培训课程，概要介绍。\",\n    \"sales\":100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/course/saveOrUpdateCourse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"course",
+								"saveOrUpdateCourse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据id获取课程信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/course/findCourseById?id=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"course",
+								"findCourseById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改课程状态",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/course/updateCourseStatus?id=15&status=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"course",
+								"updateCourseStatus"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "15"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "courseContent",
+			"item": [
+				{
+					"name": "根据课程ID查询课程下的章节与课时信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/courseContent/findSectionAndLessonByCourseId?courseId=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"courseContent",
+								"findSectionAndLessonByCourseId"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "回显章节对应的课程信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/courseContent/findCourseByCourseId?courseId=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"courseContent",
+								"findCourseByCourseId"
+							],
+							"query": [
+								{
+									"key": "courseId",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存&修改章节",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n    \"id\": 13,\n    \"sectionName\":\"Vue路由222\",\n    \"description\":\"单页面应用导航\",\n    \"orderNum\":0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/courseContent/saveOrUpdateSection",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"courseContent",
+								"saveOrUpdateSection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改章节状态",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/courseContent/updateSectionStatus?id=13&status=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"courseContent",
+								"updateSectionStatus"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "13"
+								},
+								{
+									"key": "status",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "保存&修改课时",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n   \"id\": 16,\n    \"courseId\":32,\n    \"sectionId\":24,\n    \"theme\":\"第二讲 Java中的数据类型1\",\n    \"duration\":15,\n    \"isFree\":1,\n    \"orderNum\":3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/courseContent/saveOrUpdateLesson",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"courseContent",
+								"saveOrUpdateLesson"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "promotionSpace",
+			"item": [
+				{
+					"name": "获取所有的广告位",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/promotionSpace/findAllPromotionSpace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"promotionSpace",
+								"findAllPromotionSpace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加&修改广告位",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":172,\n    \"name\":\"11111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/promotionSpace/saveOrUpdatePromotionSpace",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"promotionSpace",
+								"saveOrUpdatePromotionSpace"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据ID查询广告位信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/promotionSpace/findPromotionSpaceById?id=172",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"promotionSpace",
+								"findPromotionSpaceById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "172"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "promotionAd",
+			"item": [
+				{
+					"name": "分页获取所有的广告列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/promotionAd/findAllAdByPage?currentPage=4&pageSize=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"promotionAd",
+								"findAllAdByPage"
+							],
+							"query": [
+								{
+									"key": "currentPage",
+									"value": "4"
+								},
+								{
+									"key": "pageSize",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "文件上传",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/zhsmac/Documents/img/22.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/promotionAd/promotionAdUpload",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"promotionAd",
+								"promotionAdUpload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加&修改广告",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1089,\n\t\"name\": \"Python高级训练营22\",\n\t\"img\": \"http://localhost:8080/upload/1597731135966.jpg\",\n\t\"link\": \"www.xxxx.com\",\n\t\"spaceId\": 1,\n\t\"startTime\": 1597731128000,\n\t\"endTime\": 1597852800000,\n\t\"status\": 1,\n\t\"text\": \"大家一起学Python\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/promotionAd/saveOrUpdatePromotionAd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"promotionAd",
+								"saveOrUpdatePromotionAd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据ID查询广告信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/promotionAd/findPromotionAdById?id=1089",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"promotionAd",
+								"findPromotionAdById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1089"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改广告状态",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/promotionAd/updatePromotionAdStatus?id=1089&status=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"promotionAd",
+								"updatePromotionAdStatus"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1089"
+								},
+								{
+									"key": "status",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "查询所有用户",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"currentPage\": 1,\n\t\"pageSize\": 10,\n\t\"endCreateTime\": \"2020-07-13\",\n\t\"startCreateTime\": \"2020-07-09\",\n\t\"username\": \"15321919577\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/user/findAllUserByPage",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"user",
+								"findAllUserByPage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "修改用户状态",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/user/updateUserStatus?id=100030021&status=ENABLE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"user",
+								"updateUserStatus"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "100030021"
+								},
+								{
+									"key": "status",
+									"value": "ENABLE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "用户登录",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/user/login?phone=15321919577&password=123456",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"user",
+								"login"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "15321919577"
+								},
+								{
+									"key": "password",
+									"value": "123456"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据ID查询用户当前角色",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/user/findUserRelationRoleById?id=100030011",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"user",
+								"findUserRelationRoleById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "100030011"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "分配角色",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\": 100030022, \n\t\"roleIdList\": [4,5,6]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/user/userContextRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"user",
+								"userContextRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户权限",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/user/getUserPermissions?userId=100030011",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"user",
+								"getUserPermissions"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "100030011"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "role",
+			"item": [
+				{
+					"name": "查询角色列表",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\":\"超级管理员\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/role/findAllRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"role",
+								"findAllRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "查询全部的父子菜单信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/role/findAllMenu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"role",
+								"findAllMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "根据角色ID查询菜单信息",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/role/findMenuByRoleId?roleId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"role",
+								"findMenuByRoleId"
+							],
+							"query": [
+								{
+									"key": "roleId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "角色菜单关联",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"roleId\": 4, \n\t\"menuIdList\": [7, 8, 9, 15, 16, 17, 18]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/role/roleContextMenu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"role",
+								"roleContextMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除角色",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				},
+				{
+					"name": "添加&修改角色",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":\"5\",\n\t\"name\":\"资源管理员1\",\n\t\"code\": \"RE_MANAGER\",\n\t\"description\": \"管理资源x\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/role/saveOrUpdateRole",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"role",
+								"saveOrUpdateRole"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取当前角色拥有的资源信息(包括资源分类以及资源信息)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/role/findResourceListByRoleId?roleId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"role",
+								"findResourceListByRoleId"
+							],
+							"query": [
+								{
+									"key": "roleId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "角色分配资源",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"roleId\": 7,  \n\t\"resourceIdList\": [1, 2, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]\t\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/role/roleContextResource",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"role",
+								"roleContextResource"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "menu",
+			"item": [
+				{
+					"name": "查询菜单列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/menu/findAllMenu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"menu",
+								"findAllMenu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "回显菜单信息（包括父子菜单的全部信息）",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/menu/findMenuInfoById?id=-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"menu",
+								"findMenuInfoById"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加&修改菜单",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 22,\n\t\"description\": \"设置课程状态22\",\n\t\"href\": \"updateStatus修改\",\n\t\"icon\": \"lock\",\n\t\"name\": \"课程管理状态修改\",\n\t\"orderNum\": 3,\n\t\"parentId\": 5,\n\t\"shown\": 1,\n\t\"level\":1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/menu/saveOrUpdateMenu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"menu",
+								"saveOrUpdateMenu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "resource",
+			"item": [
+				{
+					"name": "查询所有资源",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"categoryId\": 1,\n\t\"currentPage\": 1,\n\t\"pageSize\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/resource/findAllResource",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"resource",
+								"findAllResource"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加&修改资源",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 52,\n    \"name\": 321,\n    \"url\": 111,\n    \"categoryId\": 1,\n    \"description\": 333\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/resource/saveOrUpdateResource",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"resource",
+								"saveOrUpdateResource"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除资源",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/resource/deleteResource?id=52",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"resource",
+								"deleteResource"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "52"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "resourceCategory",
+			"item": [
+				{
+					"name": "查询所有资源分类",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/resourceCategory/findAllResourceCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"resourceCategory",
+								"findAllResourceCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加&修改资源分类",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 8,\n    \"name\": 321,\n    \"sort\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/resourceCategory/saveOrUpdateResourceCategory",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"resourceCategory",
+								"saveOrUpdateResourceCategory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除资源分类",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ssm_web/resourceCategory/deleteResourceCategory?id=8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ssm_web",
+								"resourceCategory",
+								"deleteResourceCategory"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
