@@ -1,5 +1,5 @@
 # ssm_edu_system
-SSM-教育后台管理系统
+SSM架构演示-教育后台管理系统
 
 ## 后端技术
 - Web层：SpringMVC接收请求，进行视图跳转
